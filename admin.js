@@ -1,8 +1,8 @@
 // ==========================================================================
 // 1. الاتصال بـ Supabase
 // ==========================================================================
-const SUPABASE_URL = 'ضع_هنا_Project_URL';
-const SUPABASE_ANON_KEY = 'ضع_هنا_anon_public_key';
+const SUPABASE_URL = 'https://sdybcaiymndxbjorzqas.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_oM6Mp4M28K-X0JrF0Q77AQ_ptR3Oo34';
 const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 // ID السجل الرئيسي
