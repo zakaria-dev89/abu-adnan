@@ -5,16 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>محل أبو عدنان للملابس النسائية</title>
 
-    <!-- Google Fonts (خط عربي أنيق ومحترف) -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
 
-    <!-- FontAwesome (الأيقونات) -->
+    <!-- FontAwesome icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- CSS الرئيسي -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- مكتبة Supabase الرسمية -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 
@@ -26,46 +29,37 @@
             </div>
             <h1>محل أبو عدنان</h1>
             <span class="tagline">أرقى أزياء وموضة الملبوسات النسائية</span>
-            <p class="bio-text">
-                أهلاً بكم في عالم الأناقة والجمال ✨ <br>
-                نوفر لكم أحدث التشكيلات والموديلات العصرية بأعلى جودة وأنسب الأسعار.
-            </p>
+            <p class="bio-text" id="bio-text">جاري تحميل البيانات...</p>
         </header>
 
-        <!-- روابط التواصل الاجتماعي والخدمات -->
+        <!-- روابط التواصل الاجتماعي -->
         <section class="links-container">
-            
-            <!-- زر الواتساب (مربوط مباشرة برقمك مع مفتاح اليمن 967) -->
-            <a href="https://wa.me/967778325832" target="_blank" class="link-btn whatsapp">
+            <a href="#" id="whatsapp-link" target="_blank" class="link-btn whatsapp">
                 <i class="fa-brands fa-whatsapp"></i>
                 <span>تواصل عبر الواتساب</span>
             </a>
 
-            <!-- رابط إنستغرام -->
-            <a href="https://www.instagram.com/abua.dnan1?igsh=a2F6cHdjY3BjazRm&utm_source=qr" target="_blank" class="link-btn instagram">
+            <a href="#" id="instagram-link" target="_blank" class="link-btn instagram">
                 <i class="fa-brands fa-instagram"></i>
                 <span>حسابنا على إنستغرام</span>
             </a>
 
-            <!-- رابط فيسبوك -->
-            <a href="https://www.facebook.com/share/18WEwWFfTu/?mibextid=wwXIfr" target="_blank" class="link-btn facebook">
+            <a href="#" id="facebook-link" target="_blank" class="link-btn facebook">
                 <i class="fa-brands fa-facebook-f"></i>
                 <span>صفحتنا على فيسبوك</span>
             </a>
-
         </section>
 
-        <!-- قسم فروعنا -->
+        <!-- قسم الفروع -->
         <section class="branches-section">
             <h3><i class="fa-solid fa-location-dot"></i> فروعنا:</h3>
-            <ul>
-                <li><strong>الفرع الرئيسي:</strong> شارع جمال - بجوار سوق الأنسي</li>
-                <li><strong>الفرع الثاني:</strong> مركز سما مول - الدور الثاني</li>
-                <li><strong>الفرع الثالث:</strong> حدة - سوق الحمراء - جوار الكميم - الياسمين</li>
+            <ul id="branches-list">
+                <li>جاري تحميل الفروع...</li>
             </ul>
         </section>
     </main>
 
+    <!-- ملف الاتصال وجلب البيانات -->
     <script src="script.js"></script>
 </body>
 </html>
