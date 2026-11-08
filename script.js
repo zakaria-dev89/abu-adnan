@@ -1,14 +1,13 @@
 // ==========================================================================
 // 1. إعدادات الاتصال بـ Supabase
 // ==========================================================================
-const SUPABASE_URL = 'https://sdybcaiymndxbjorzqas.supabase.co';
-const SUPABASE_ANON_KEY = 'sb_publishable_oM6Mp4M28K-X0JrF0Q77AQ_ptR3Oo34';
+const SUPABASE_URL = 'https://xxxx.supabase.co'; // ضع رابطك هنا
+const SUPABASE_ANON_KEY = 'eyJhbGciOi...'; // ضع مفتاحك هنا
 
-// إنشاء عميل الاتصال
 const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 // ==========================================================================
-// 2. دالة جلب بيانات المحل والتواصل
+// 2. جلب وتحديث البيانات العامة
 // ==========================================================================
 async function fetchSiteInfo() {
     try {
@@ -20,10 +19,8 @@ async function fetchSiteInfo() {
         if (error) throw error;
 
         if (data) {
-            // تحديث نص الترحيب
             document.getElementById('bio-text').innerText = data.bio_text;
 
-            // تحديث رابط الواتساب (إضافة بادئة wa.me إذا كان الرقم مجرداً)
             const waNumber = data.whatsapp.startsWith('http') 
                 ? data.whatsapp 
                 : `https://wa.me/${data.whatsapp.replace('+', '')}`;
@@ -38,7 +35,7 @@ async function fetchSiteInfo() {
 }
 
 // ==========================================================================
-// 3. دالة جلب الفروع
+// 3. جلب وتحديث الفروع
 // ==========================================================================
 async function fetchBranches() {
     try {
@@ -50,7 +47,7 @@ async function fetchBranches() {
         if (error) throw error;
 
         const branchesList = document.getElementById('branches-list');
-        branchesList.innerHTML = ''; // تفريغ نص "جاري التحميل"
+        branchesList.innerHTML = '';
 
         data.forEach(branch => {
             const li = document.createElement('li');
@@ -63,8 +60,31 @@ async function fetchBranches() {
 }
 
 // ==========================================================================
-// 4. تشغيل الدوال عند فتح الصفحة
+// 4. ميزة مشاركة رابط الموقع نسخ مباشر
 // ==========================================================================
+document.getElementById('share-btn').addEventListener('click', () => {
+    if (navigator.share) {
+        navigator.share({
+            title: 'محل أبو عدنان للملابس النسائية',
+            text: 'تفضل بزيارة صفحتنا وطرق التواصل الخاصة بمحل أبو عدنان:',
+            url: window.location.href
+        }).catch(() => {});
+    } else {
+        // نسخ للتقويم إذا كانت المشاركة غير مدعومة
+        navigator.clipboard.writeText(window.location.href);
+        showToast();
+    }
+});
+
+function showToast() {
+    const toast = document.getElementById('toast');
+    toast.classList.add('show');
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 3000);
+}
+
+// تشغيل عند التحميل
 document.addEventListener('DOMContentLoaded', () => {
     fetchSiteInfo();
     fetchBranches();
