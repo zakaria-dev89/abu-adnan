@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Tajawal', sans-serif;
+}
+
+body {
+    background-color: #f0f4f8;
+    display: flex;
+    justify-content: center;
+    padding: 30px 15px;
+    min-height: 100vh;
+}
+
+.admin-container {
+    width: 100%;
+    max-width: 550px;
+}
+
+.admin-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.admin-header h2 {
+    color: #1a202c;
+    font-size: 24px;
+}
+
+.admin-header p {
+    color: #718096;
+    font-size: 14px;
+}
+
+.admin-card {
+    background-color: #ffffff;
+    border-radius: 18px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.admin-card h3 {
+    font-size: 17px;
+    color: #2b6cb0;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: right;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #4a5568;
+    margin-bottom: 6px;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e0;
+    border-radius: 10px;
+    font-size: 14px;
+    direction: ltr;
+    text-align: right;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.save-btn {
+    background-color: #2b6cb0;
+    color: #fff;
+}
+
+.add-btn {
+    background-color: #276749;
+    color: #fff;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.divider {
+    margin: 20px 0;
+    border: 0;
+    border-top: 1px solid #e2e8f0;
+}
+
+.admin-list {
+    list-style: none;
+    padding: 0;
+}
+
+.admin-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f7fafc;
+    padding: 12px 15px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    font-size: 13.5px;
+    border: 1px solid #edf2f7;
+}
+
+.delete-btn {
+    width: auto;
+    padding: 6px 12px;
+    background-color: #e53e3e;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 6px;
+}

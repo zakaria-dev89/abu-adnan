@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة تحكم - محل أبو عدنان</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS الخاص بـ Admin -->
+    <link rel="stylesheet" href="admin-style.css">
+
+    <!-- مكتبة Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+    <main class="admin-container">
+        <header class="admin-header">
+            <h2><i class="fa-solid fa-gears"></i> لوحة تحكم الموقع</h2>
+            <p>تعديل بيانات التواصل والفروع فورياً</p>
+        </header>
+
+        <!-- نموذج تعديل البيانات العامة -->
+        <section class="admin-card">
+            <h3><i class="fa-solid fa-sliders"></i> البيانات العامة وروابط التواصل</h3>
+            <form id="info-form">
+                <div class="form-group">
+                    <label>رقم الواتساب (مع مفتاح الدولة):</label>
+                    <input type="text" id="whatsapp-input" placeholder="967778325832" required>
+                </div>
+
+                <div class="form-group">
+                    <label>رابط إنستغرام:</label>
+                    <input type="url" id="instagram-input" placeholder="https://..." required>
+                </div>
+
+                <div class="form-group">
+                    <label>رابط فيسبوك:</label>
+                    <input type="url" id="facebook-input" placeholder="https://..." required>
+                </div>
+
+                <div class="form-group">
+                    <label>النص الترحيبي (النبذة):</label>
+                    <textarea id="bio-input" rows="3" required></textarea>
+                </div>
+
+                <button type="submit" class="save-btn">
+                    <i class="fa-solid fa-floppy-disk"></i> حفظ التعديلات العامة
+                </button>
+            </form>
+        </section>
+
+        <!-- قسم إضافة وإدارة الفروع -->
+        <section class="admin-card">
+            <h3><i class="fa-solid fa-store"></i> إضافة فرع جديد</h3>
+            <form id="branch-form">
+                <div class="form-group">
+                    <label>اسم الفرع:</label>
+                    <input type="text" id="branch-name-input" placeholder="مثال: الفرع الرابع" required>
+                </div>
+                <div class="form-group">
+                    <label>تفاصيل العنوان:</label>
+                    <input type="text" id="branch-location-input" placeholder="مثال: شارع..." required>
+                </div>
+                <button type="submit" class="add-btn">
+                    <i class="fa-solid fa-plus"></i> إضافة الفرع
+                </button>
+            </form>
+
+            <hr class="divider">
+
+            <h3><i class="fa-solid fa-list"></i> الفروع الحالية</h3>
+            <ul id="admin-branches-list" class="admin-list">
+                <li>جاري تحميل الفروع...</li>
+            </ul>
+        </section>
+    </main>
+
+    <script src="admin.js"></script>
+</body>
+</html>
