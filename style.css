@@ -10,115 +10,114 @@
 }
 
 body {
-    /* خلفية بنفسجي داكن مطفي وفاخر */
     background-color: #130f1c;
     background-image: radial-gradient(circle at 50% 0%, #221733 0%, #130f1c 100%);
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     min-height: 100vh;
     width: 100vw;
     overflow-x: hidden;
     color: #e2e8f0;
+    padding: 15px;
 }
 
-/* حاوية الصفحة تملأ الشاشة بالكامل */
+/* الحاوية الرئيسية متباعدة بشكل مريح للشاشة */
 .card-container {
-    background: transparent;
+    background: rgba(22, 15, 36, 0.6);
+    backdrop-filter: blur(10px);
     width: 100%;
-    min-height: 100vh;
-    max-width: 480px;
-    padding: 30px 20px;
+    max-width: 450px;
+    padding: 24px 18px;
+    border-radius: 24px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    text-align: center;
+    gap: 20px; /* المسافة المقسمة بوضوح بين الأجزاء */
+    animation: fadeInPage 0.5s ease-out;
 }
 
 /* ==========================================================================
-   2. الرأس والهوية (لمسات ذهبية هادئة)
+   2. الجزء الأول: اسم المحل والكلام (الترحيب)
    ========================================================================== */
+.profile-header {
+    text-align: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
 .logo-wrapper {
     display: inline-block;
-    position: relative;
-    margin-bottom: 14px;
-    margin-top: 15px;
+    margin-bottom: 10px;
 }
 
 .logo-icon {
-    width: 80px;
-    height: 80px;
-    /* إطار ذهبي هادئ وناعم */
-    background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(184, 134, 11, 0.1) 100%);
-    color: #f3e5ab; /* لون ذهبي مضيء */
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.18) 0%, rgba(184, 134, 11, 0.08) 100%);
+    color: #f7edc4;
     border: 2px solid #d4af37;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 34px;
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.25);
+    font-size: 30px;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
 }
 
 .profile-header h1 {
-    /* اسم المحل بلمسة ذهبية هادئة وفخمة */
     color: #f7edc4;
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 800;
-    margin-bottom: 6px;
-    text-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
+    margin-bottom: 4px;
+    text-shadow: 0 2px 10px rgba(212, 175, 55, 0.25);
 }
 
 .profile-header .tagline {
     display: inline-block;
     color: #d4af37;
-    font-size: 13.5px;
+    font-size: 13px;
     font-weight: 700;
     background-color: rgba(212, 175, 55, 0.1);
     border: 1px solid rgba(212, 175, 55, 0.3);
-    padding: 4px 14px;
+    padding: 3px 12px;
     border-radius: 20px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .profile-header .bio-text {
     color: #cbd5e1;
-    font-size: 14.5px;
-    line-height: 1.6;
-    margin-bottom: 25px;
+    font-size: 13.5px;
+    line-height: 1.5;
     font-weight: 400;
-    padding: 0 10px;
+    padding: 0 5px;
 }
 
 /* ==========================================================================
-   3. الأزرار التفاعلية (خلفية مطفية مع حواف سماوية بارزة)
+   3. الجزء الثاني: طرق التواصل (أزرار بارزة بحواف سماوية)
    ========================================================================== */
 .links-container {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    width: 100%;
+    gap: 12px;
 }
 
 .link-btn {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 16px 20px;
-    /* خلفية بنفسجي مطفي داكن تناسب التصميم العام */
-    background: rgba(26, 18, 43, 0.85);
-    /* حواف سماوية بارزة ومضيئة */
+    padding: 14px 18px;
+    background: rgba(26, 18, 43, 0.9);
     border: 2px solid #00f0ff;
-    border-radius: 16px;
+    border-radius: 14px;
     text-decoration: none;
-    font-size: 15.5px;
+    font-size: 14.5px;
     font-weight: 700;
     color: #ffffff;
     cursor: pointer;
-    box-shadow: 0 0 12px rgba(0, 240, 255, 0.25), inset 0 0 8px rgba(0, 240, 255, 0.1);
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), inset 0 0 8px rgba(0, 240, 255, 0.08);
+    transition: all 0.2s ease;
 }
 
 .link-btn span {
@@ -128,52 +127,46 @@ body {
 }
 
 .link-btn i {
-    font-size: 22px;
+    font-size: 20px;
 }
 
-/* تخصيص أيقونات الأزرار بلونها المميز مع الحواف السماوية المضيئة */
 .link-btn.whatsapp i { color: #25D366; }
 .link-btn.instagram i { color: #e1306c; }
 .link-btn.facebook i { color: #1877F2; }
 .link-btn.share i { color: #00f0ff; }
 
 .link-btn .arrow-icon {
-    font-size: 14px;
+    font-size: 12px;
     color: #00f0ff;
-    opacity: 0.8;
-    transition: transform 0.2s ease;
+    opacity: 0.7;
 }
 
-/* تأثير التفاعل عند اللمس أو التمرير */
-.link-btn:hover, .link-btn:active {
+.link-btn:hover {
     background: rgba(35, 24, 58, 0.95);
     border-color: #33f3ff;
-    box-shadow: 0 0 20px rgba(0, 240, 255, 0.5), inset 0 0 12px rgba(0, 240, 255, 0.2);
-    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 240, 255, 0.35);
 }
 
-.link-btn:hover .arrow-icon {
-    transform: translateX(-4px);
+.link-btn:active {
+    transform: scale(0.97);
 }
 
 /* ==========================================================================
-   4. الفروع والتذييل
+   4. الجزء الثالث: الفروع (في الأسفل مرتبة ومقسمة)
    ========================================================================== */
 .branches-section {
-    margin: 30px 0 15px 0;
-    background: rgba(22, 15, 36, 0.9);
-    border: 1px solid rgba(212, 175, 55, 0.3); /* إطار ذهبي خفيف */
-    border-radius: 18px;
-    padding: 20px 16px;
+    background: rgba(18, 12, 28, 0.8);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 16px;
+    padding: 16px;
     text-align: right;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
 .branches-section h3 {
-    color: #f7edc4; /* لون ذهبي هادئ */
-    font-size: 15.5px;
+    color: #f7edc4;
+    font-size: 14.5px;
     font-weight: 700;
-    margin-bottom: 14px;
+    margin-bottom: 10px;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -184,17 +177,17 @@ body {
 }
 
 .branches-section li {
-    font-size: 13.5px;
+    font-size: 13px;
     color: #cbd5e1;
-    margin-bottom: 12px;
-    line-height: 1.5;
+    margin-bottom: 8px;
+    line-height: 1.4;
     position: relative;
-    padding-right: 20px;
+    padding-right: 18px;
 }
 
 .branches-section li::before {
     content: "📍";
-    font-size: 11px;
+    font-size: 10px;
     position: absolute;
     right: 0;
     top: 2px;
@@ -205,9 +198,10 @@ body {
 }
 
 .footer-text {
-    margin-top: 15px;
-    font-size: 12px;
+    text-align: center;
+    font-size: 11px;
     color: #64748b;
+    margin-top: -5px;
 }
 
 /* إشعار النسخ */
@@ -219,15 +213,19 @@ body {
     background-color: #221733;
     color: #f7edc4;
     border: 1px solid #d4af37;
-    padding: 12px 24px;
+    padding: 10px 20px;
     border-radius: 30px;
-    font-size: 14px;
-    font-weight: 500;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-    transition: bottom 0.4s ease;
+    font-size: 13px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    transition: bottom 0.3s ease;
     z-index: 100;
 }
 
 .toast.show {
-    bottom: 25px;
+    bottom: 20px;
+}
+
+@keyframes fadeInPage {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
