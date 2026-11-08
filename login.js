@@ -1,6 +1,6 @@
 // إعدادات Supabase
 const SUPABASE_URL = 'https://sdybcaiymndxbjorzqas.supabase.co'; // رابط مشروعك
-const SUPABASE_ANON_KEY = 'https://sdybcaiymndxbjorzqas.supabase.co'; // مفتاح anon الخاص بك
+const SUPABASE_ANON_KEY = 'sb_publishable_oM6Mp4M28K-X0JrF0Q77AQ_ptR3Oo34'; // مفتاح anon الخاص بك
 const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 // التأكد إذا كان المستخدم مسجلاً دخوله مسبقاً توجيهه للوحة التحكم فوراً
