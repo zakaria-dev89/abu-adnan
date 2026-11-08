@@ -1,3 +1,24 @@
+// إضافة فحص الجلسة في بداية admin.js
+async function checkAuth() {
+    const { data: { session } } = await supabaseClient.auth.getSession();
+    if (!session) {
+        // إذا لم يكن مسجل الدخول يتم طرده لصفحة login.html
+        window.location.href = 'login.html';
+    }
+}
+
+// زر تسجيل الخروج
+document.addEventListener('DOMContentLoaded', () => {
+    checkAuth();
+
+    const logoutBtn = document.getElementById('logout-btn');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', async () => {
+            await supabaseClient.auth.signOut();
+            window.location.href = 'login.html';
+        });
+    }
+});
 // ==========================================================================
 // 1. الاتصال بـ Supabase
 // ==========================================================================
