@@ -1,0 +1,152 @@
+/* إعادة تعيين الخطوط والأبعاد الأساسية */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* خلفية الصفحة وإتاحة التوسيط */
+body {
+    background-color: #f4f6f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* بطاقة المحتوى الرئيسية */
+.card-container {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 400px; /* حجم مثالي لجميع شاشات الجوال */
+    padding: 30px 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+/* رأس الصفحة - اسم المحل */
+.profile-header h1 {
+    color: #1a202c;
+    font-size: 26px;
+    margin-bottom: 8px;
+}
+
+.profile-header p {
+    color: #718096;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+/* حاوية الأزرار */
+.links-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* التنسيق العام لجميع الأزرار */
+.link-btn {
+    display: block;
+    padding: 15px 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+/* تأثير التكبير الخفيف عند اللمس أو التمرير */
+.link-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* زر الواتساب */
+.whatsapp {
+    background-color: #25D366;
+    color: #ffffff;
+}
+
+/* زر الانستغرام */
+.instagram {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    color: #ffffff;
+}
+
+/* زر الهاتف الثابت */
+.phone {
+    background-color: #2b6cb0;
+    color: #f8f7fa;
+}
+
+/* مربع العنوان */
+.address {
+    background-color: #edf2f7;
+    color: #2d3748;
+    font-size: 14px;
+    line-height: 1.5;
+}
+/* تنسيق أيقونة المتجر العلوية */
+.logo-icon {
+    font-size: 35px;
+    color: #2b6cb0;
+    margin-bottom: 10px;
+}
+
+/* تنسيق الأيقونات داخل الأزرار */
+.link-btn i {
+    margin-left: 10px; /* ترك مسافة صغيرة بين الأيقونة والنص */
+    font-size: 18px;
+}/* ==========================================================================
+   تنسيق قسم الفروع الجديد
+   ========================================================================== */
+.branches-section {
+    margin-top: 25px;
+    background-color: #f2f6f9;
+    border: 1px solid #f2e3ec;
+    border-radius: 14px;
+    padding: 15px;
+    text-align: right;
+}
+
+.branches-section h3 {
+    color: #d81b60;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.branches-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.branches-section li {
+    font-size: 13.5px;
+    color: #4a5568;
+    margin-bottom: 8px;
+    line-height: 1.5;
+    position: relative;
+    padding-right: 15px;
+}
+
+/* إضافة علامة نقطة أو شُرطة دقيقة أمام كل فرع */
+.branches-section li::before {
+    content: "•";
+    color: #d81b60;
+    font-weight: bold;
+    position: absolute;
+    right: 0;
+}
+
+.branches-section li strong {
+    color: #2c3e50;
+}
