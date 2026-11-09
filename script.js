@@ -200,4 +200,10 @@ function showToast() {
 document.addEventListener('DOMContentLoaded', () => {
     fetchSiteInfo();
     fetchBranches();
+
+    const sBtn = document.getElementById('share-btn');
+    if (sBtn) sBtn.addEventListener('click', handleShare);
+
+    const nBtn = document.getElementById('nav-share-btn');
+    if (nBtn) nBtn.addEventListener('click', handleShare);
 });
