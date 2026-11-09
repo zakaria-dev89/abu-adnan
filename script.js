@@ -195,11 +195,107 @@ function showToast() {
 }
 
 // ==========================================================================
-// 5. التشغيل عند التحميل
+// 5. فحص وتحديث حالة المتجر التفاعلية (مفتوح حالياً / مغلق حالياً)
+// ==========================================================================
+function checkStoreStatus() {
+    try {
+        // حساب الوقت الحالي بتوقيت اليمن (Asia/Aden, UTC+3)
+        const now = new Date();
+        const formatter = new Intl.DateTimeFormat('en-US', {
+            timeZone: 'Asia/Aden',
+            hour12: false,
+            weekday: 'short',
+            hour: 'numeric',
+            minute: 'numeric'
+        });
+
+        const parts = formatter.formatToParts(now);
+        let weekday = '';
+        let hour = 0;
+        let minute = 0;
+
+        for (const part of parts) {
+            if (part.type === 'weekday') weekday = part.value;
+            if (part.type === 'hour') hour = parseInt(part.value, 10);
+            if (part.type === 'minute') minute = parseInt(part.value, 10);
+        }
+
+        const totalMinutes = hour * 60 + minute;
+        const isFriday = (weekday === 'Fri');
+
+        // أوقات الدوام:
+        // السبت – الخميس: 10:00 صباحاً حتى 10:00 ليلاً (22:00)
+        // يوم الجمعة: 4:00 عصراً (16:00) حتى 10:00 ليلاً (22:00)
+        let isOpen = false;
+        if (isFriday) {
+            isOpen = (totalMinutes >= 16 * 60 && totalMinutes < 22 * 60);
+        } else {
+            isOpen = (totalMinutes >= 10 * 60 && totalMinutes < 22 * 60);
+        }
+
+        return { isOpen, isFriday };
+    } catch (e) {
+        const localNow = new Date();
+        const day = localNow.getDay(); // 5 = الجمعة
+        const hour = localNow.getHours();
+        const isFriday = (day === 5);
+        const isOpen = isFriday ? (hour >= 16 && hour < 22) : (hour >= 10 && hour < 22);
+        return { isOpen, isFriday };
+    }
+}
+
+function updateStoreStatusUI() {
+    const { isOpen, isFriday } = checkStoreStatus();
+
+    // تحديث جميع شارات الحالة في الصفحة
+    const statusBadges = document.querySelectorAll('.store-status-indicator');
+    statusBadges.forEach(badge => {
+        const textSpan = badge.querySelector('.status-text');
+        if (isOpen) {
+            badge.classList.remove('status-closed');
+            badge.classList.add('status-open');
+            if (textSpan) textSpan.innerText = 'مفتوح حالياً';
+        } else {
+            badge.classList.remove('status-open');
+            badge.classList.add('status-closed');
+            if (textSpan) textSpan.innerText = 'مغلق حالياً';
+        }
+    });
+
+    // تحديث الملاحظة الحية تحت أوقات العمل
+    const noteEl = document.getElementById('hours-live-note');
+    if (noteEl) {
+        if (isOpen) {
+            noteEl.innerText = 'يسعدنا استقبالكم وخدمتكم الآن في جميع فروعنا';
+            noteEl.style.color = '#86efac';
+        } else {
+            noteEl.innerText = 'المحل مغلق حالياً، نسعد بزيارتكم في أوقات العمل الموضحة أعلاه';
+            noteEl.style.color = '#fca5a5';
+        }
+    }
+
+    // إبراز اليوم الحالي في جدول الدوام
+    const friRow = document.getElementById('friday-row');
+    const satThuRow = document.getElementById('saturday-thursday-row');
+    if (isFriday) {
+        if (friRow) friRow.classList.add('active-today');
+        if (satThuRow) satThuRow.classList.remove('active-today');
+    } else {
+        if (satThuRow) satThuRow.classList.add('active-today');
+        if (friRow) friRow.classList.remove('active-today');
+    }
+}
+
+// ==========================================================================
+// 6. التشغيل عند التحميل
 // ==========================================================================
 document.addEventListener('DOMContentLoaded', () => {
     fetchSiteInfo();
     fetchBranches();
+    updateStoreStatusUI();
+
+    // تحديث الحالة تلقائياً كل 30 ثانية
+    setInterval(updateStoreStatusUI, 30000);
 
     const sBtn = document.getElementById('share-btn');
     if (sBtn) sBtn.addEventListener('click', handleShare);

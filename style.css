@@ -300,26 +300,58 @@ body {
     align-items: center;
     gap: 7px;
     font-size: 12px;
-    color: #86efac;
-    background: rgba(34, 197, 94, 0.12);
-    border: 1px solid rgba(34, 197, 94, 0.25);
-    padding: 3px 12px;
+    padding: 4px 12px;
     border-radius: 20px;
     margin-bottom: 8px;
+    font-weight: 700;
+    transition: var(--transition-smooth);
+}
+
+/* حالة المتجر: مفتوح حالياً */
+.status-badge.status-open,
+.open-status.status-open {
+    color: #86efac;
+    background: rgba(34, 197, 94, 0.14);
+    border: 1px solid rgba(34, 197, 94, 0.35);
+}
+
+.status-badge.status-open .status-dot,
+.open-status.status-open .status-dot {
+    background-color: #22c55e;
+    box-shadow: 0 0 10px #22c55e;
+    animation: pulseGreenDot 2s infinite;
+}
+
+/* حالة المتجر: مغلق حالياً */
+.status-badge.status-closed,
+.open-status.status-closed {
+    color: #fca5a5;
+    background: rgba(239, 68, 68, 0.14);
+    border: 1px solid rgba(239, 68, 68, 0.35);
+}
+
+.status-badge.status-closed .status-dot,
+.open-status.status-closed .status-dot {
+    background-color: #ef4444;
+    box-shadow: 0 0 10px #ef4444;
+    animation: pulseRedDot 2s infinite;
 }
 
 .status-dot {
-    width: 7px;
-    height: 7px;
-    background-color: #22c55e;
+    width: 7.5px;
+    height: 7.5px;
     border-radius: 50%;
-    box-shadow: 0 0 8px #22c55e;
-    animation: pulseDot 2s infinite;
+    flex-shrink: 0;
 }
 
-@keyframes pulseDot {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(0.85); }
+@keyframes pulseGreenDot {
+    0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 8px #22c55e; }
+    50% { opacity: 0.45; transform: scale(0.85); box-shadow: 0 0 3px #22c55e; }
+}
+
+@keyframes pulseRedDot {
+    0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 8px #ef4444; }
+    50% { opacity: 0.45; transform: scale(0.85); box-shadow: 0 0 3px #ef4444; }
 }
 
 .profile-header .bio-text {
@@ -363,12 +395,15 @@ body {
     align-items: center;
     gap: 6px;
     font-size: 11.5px;
-    color: #86efac;
-    background: rgba(34, 197, 94, 0.12);
-    border: 1px solid rgba(34, 197, 94, 0.25);
-    padding: 2px 10px;
+    padding: 3px 11px;
     border-radius: 16px;
     font-weight: 700;
+    transition: var(--transition-smooth);
+}
+
+.hour-row.active-today {
+    border-color: rgba(212, 175, 55, 0.35);
+    background: rgba(212, 175, 55, 0.08);
 }
 
 .hours-list {

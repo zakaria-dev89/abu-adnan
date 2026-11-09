@@ -46,9 +46,9 @@
                 </div>
             </div>
             <div class="nav-actions">
-                <div class="status-badge">
+                <div class="status-badge store-status-indicator" id="nav-status-badge">
                     <span class="status-dot"></span>
-                    <span>متواجدون دائماً لخدمتكم</span>
+                    <span class="status-text">مفتوح حالياً</span>
                 </div>
                 <button type="button" class="nav-share-btn" id="nav-share-btn">
                     <i class="fa-solid fa-share-nodes"></i>
@@ -74,31 +74,34 @@
                     <h1>محل أبو عدنان</h1>
                     <span class="tagline">أرقى أزياء وموضة الملبوسات النسائية</span>
                     
-                    <div class="mobile-only status-badge">
+                    <div class="mobile-only status-badge store-status-indicator" id="mobile-status-badge">
                         <span class="status-dot"></span>
-                        <span>متواجدون دائماً لخدمتكم</span>
+                        <span class="status-text">مفتوح حالياً</span>
                     </div>
 
                     <p class="bio-text" id="bio-text">جاري تحميل البيانات...</p>
                 </div>
 
-                <!-- بطاقة أوقات العمل بتصميم راقٍ ومرتب بدون حشو أيقونات -->
+                <!-- بطاقة أوقات العمل بتصميم راقٍ وتفاعلي حسب الوقت الفعلي -->
                 <div class="working-hours-card">
                     <div class="hours-header">
                         <h4>أوقات دوام الفروع</h4>
-                        <span class="open-status"><span class="status-dot"></span> مفتوح الآن</span>
+                        <span class="open-status store-status-indicator" id="working-hours-status">
+                            <span class="status-dot"></span>
+                            <span class="status-text">مفتوح حالياً</span>
+                        </span>
                     </div>
                     <div class="hours-list">
-                        <div class="hour-row">
+                        <div class="hour-row" id="saturday-thursday-row">
                             <span class="period-name">السبت – الخميس</span>
                             <span class="period-time">10:00 صباحاً – 10:00 مساءً</span>
                         </div>
-                        <div class="hour-row highlight-row">
+                        <div class="hour-row" id="friday-row">
                             <span class="period-name">يوم الجمعة</span>
                             <span class="period-time">4:00 عصراً – 10:00 مساءً</span>
                         </div>
                     </div>
-                    <p class="hours-note">فترة واحدة متواصلة طوال اليوم لخدمتكم</p>
+                    <p class="hours-note" id="hours-live-note">فترة واحدة متواصلة طوال اليوم لخدمتكم</p>
                 </div>
 
                 <!-- بطاقة خدمة التوصيل الأنيقة -->
