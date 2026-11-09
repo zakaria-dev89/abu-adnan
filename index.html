@@ -14,7 +14,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -27,75 +27,162 @@
 </head>
 <body>
 
-    <!-- عناصر إضاءة خلفية جمالية للشاشات الكبيرة واللابتوب -->
+    <!-- عناصر إضاءة خلفية جمالية سينمائية للشاشات الكبيرة واللابتوب -->
     <div class="bg-glow bg-glow-1" aria-hidden="true"></div>
     <div class="bg-glow bg-glow-2" aria-hidden="true"></div>
     <div class="bg-glow bg-glow-3" aria-hidden="true"></div>
 
-    <main class="card-container">
-        <!-- قسم الهوية والشعار -->
-        <header class="profile-header">
-            <div class="logo-wrapper">
-                <div class="logo-icon">
+    <!-- شريط علوي أنيق يظهر على اللابتوب والشاشات الكبيرة -->
+    <header class="desktop-navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="nav-logo">
                     <i class="fa-solid fa-shirt"></i>
                 </div>
-                <div class="verified-badge" title="متجر موثوق">
-                    <i class="fa-solid fa-check"></i>
+                <div class="nav-title-group">
+                    <span class="nav-title">محل أبو عدنان</span>
+                    <span class="nav-subtitle">أرقى أزياء وموضة الملبوسات النسائية</span>
                 </div>
             </div>
-            <h1>محل أبو عدنان</h1>
-            <span class="tagline">أرقى أزياء وموضة الملبوسات النسائية</span>
-            <div class="status-badge">
-                <span class="status-dot"></span>
-                <span>متواجدون دائماً لخدمتكم</span>
+            <div class="nav-actions">
+                <div class="status-badge">
+                    <span class="status-dot"></span>
+                    <span>متواجدون دائماً لخدمتكم</span>
+                </div>
+                <button type="button" class="nav-share-btn" id="nav-share-btn">
+                    <i class="fa-solid fa-share-nodes"></i>
+                    <span>مشاركة الرابط</span>
+                </button>
             </div>
-            <p class="bio-text" id="bio-text">جاري تحميل البيانات...</p>
-        </header>
+        </div>
+    </header>
 
-        <!-- روابط التواصل الاجتماعي التفاعلية -->
-        <section class="links-container" aria-label="طرق التواصل">
-            <a href="#" id="whatsapp-link" target="_blank" rel="noopener noreferrer" class="link-btn whatsapp">
-                <span class="btn-icon"><i class="fa-brands fa-whatsapp"></i></span>
-                <span class="btn-text">تواصل عبر الواتساب</span>
-                <i class="fa-solid fa-chevron-left arrow-icon"></i>
-            </a>
+    <!-- الحاوية الرئيسية للموقع -->
+    <main class="site-wrapper">
+        <div class="portal-grid">
 
-            <a href="#" id="instagram-link" target="_blank" rel="noopener noreferrer" class="link-btn instagram">
-                <span class="btn-icon"><i class="fa-brands fa-instagram"></i></span>
-                <span class="btn-text">حسابنا على إنستغرام</span>
-                <i class="fa-solid fa-chevron-left arrow-icon"></i>
-            </a>
+            <!-- العمود الأول (اليمين): هوية المحل والنبذة ومزايا المتجر -->
+            <aside class="profile-card">
+                <div class="profile-header">
+                    <div class="logo-wrapper">
+                        <div class="logo-icon">
+                            <i class="fa-solid fa-shirt"></i>
+                        </div>
+                        <div class="verified-badge" title="متجر موثوق">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                    </div>
+                    <h1>محل أبو عدنان</h1>
+                    <span class="tagline">أرقى أزياء وموضة الملبوسات النسائية</span>
+                    
+                    <div class="mobile-only status-badge">
+                        <span class="status-dot"></span>
+                        <span>متواجدون دائماً لخدمتكم</span>
+                    </div>
 
-            <a href="#" id="facebook-link" target="_blank" rel="noopener noreferrer" class="link-btn facebook">
-                <span class="btn-icon"><i class="fa-brands fa-facebook-f"></i></span>
-                <span class="btn-text">صفحتنا على فيسبوك</span>
-                <i class="fa-solid fa-chevron-left arrow-icon"></i>
-            </a>
+                    <p class="bio-text" id="bio-text">جاري تحميل البيانات...</p>
+                </div>
 
-            <!-- زر مشاركة الموقع -->
-            <button id="share-btn" type="button" class="link-btn share">
-                <span class="btn-icon"><i class="fa-solid fa-share-nodes"></i></span>
-                <span class="btn-text">مشاركة رابط المحل</span>
-                <i class="fa-solid fa-copy arrow-icon"></i>
-            </button>
-        </section>
+                <!-- مزايا ونقاط قوة المتجر (تثري التصميم وتملأ المساحة على شاشات اللابتوب) -->
+                <div class="store-features">
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fa-solid fa-gem"></i></div>
+                        <div class="feature-text">
+                            <strong>تشكيلات حصرية</strong>
+                            <span>أحدث موديلات الفساتين والأزياء النسائية</span>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                        <div class="feature-text">
+                            <strong>خامات متميزة</strong>
+                            <span>أعلى معايير الجودة والأناقة والتفصيل</span>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fa-solid fa-tags"></i></div>
+                        <div class="feature-text">
+                            <strong>أسعار منافسة</strong>
+                            <span>أفضل الأسعار وعروض متجددة باستمرار</span>
+                        </div>
+                    </div>
+                </div>
 
-        <!-- قسم الفروع -->
-        <section class="branches-section" aria-label="فروع المحل">
-            <div class="branches-header">
-                <h3><i class="fa-solid fa-location-dot"></i> فروعنا</h3>
-                <span class="branches-count" id="branches-count"></span>
-            </div>
-            <ul id="branches-list" class="branches-list">
-                <li class="loading-skeleton">جاري تحميل الفروع...</li>
-            </ul>
-        </section>
+                <!-- زر مشاركة الموقع داخل الكارد -->
+                <button id="share-btn" type="button" class="link-btn share">
+                    <span class="btn-icon"><i class="fa-solid fa-share-nodes"></i></span>
+                    <span class="btn-text">مشاركة رابط المحل</span>
+                    <i class="fa-solid fa-copy arrow-icon"></i>
+                </button>
+            </aside>
 
-        <!-- التذييل الحقوق -->
-        <footer class="footer-text">
-            <p>© محل أبو عدنان - جميع الحقوق محفوظة</p>
-        </footer>
+            <!-- العمود الثاني (اليسار): قنوات التواصل والفروع -->
+            <section class="content-hub">
+
+                <!-- 1. قسم قنوات التواصل السريعة -->
+                <div class="hub-section">
+                    <div class="section-header">
+                        <div class="section-title">
+                            <i class="fa-solid fa-comments"></i>
+                            <h3>قنوات التواصل والطلب السريع</h3>
+                        </div>
+                        <span class="section-note">تفضل باختيار وسيلة التواصل المناسبة لخدمتك</span>
+                    </div>
+
+                    <div class="links-grid">
+                        <a href="#" id="whatsapp-link" target="_blank" rel="noopener noreferrer" class="link-btn whatsapp">
+                            <span class="btn-icon"><i class="fa-brands fa-whatsapp"></i></span>
+                            <div class="btn-info">
+                                <span class="btn-text">تواصل عبر الواتساب</span>
+                                <span class="btn-desc">محادثة، استفسارات، وحجوزات فورية</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-left arrow-icon"></i>
+                        </a>
+
+                        <a href="#" id="instagram-link" target="_blank" rel="noopener noreferrer" class="link-btn instagram">
+                            <span class="btn-icon"><i class="fa-brands fa-instagram"></i></span>
+                            <div class="btn-info">
+                                <span class="btn-text">حسابنا على إنستغرام</span>
+                                <span class="btn-desc">مشاهدة صور وفيديوهات الكولكشن الجديد</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-left arrow-icon"></i>
+                        </a>
+
+                        <a href="#" id="facebook-link" target="_blank" rel="noopener noreferrer" class="link-btn facebook">
+                            <span class="btn-icon"><i class="fa-brands fa-facebook-f"></i></span>
+                            <div class="btn-info">
+                                <span class="btn-text">صفحتنا على فيسبوك</span>
+                                <span class="btn-desc">متابعة العروض والإعلانات الحصرية</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-left arrow-icon"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 2. قسم فروع المحل -->
+                <div class="hub-section branches-section" aria-label="فروع المحل">
+                    <div class="section-header branches-header">
+                        <div class="section-title">
+                            <i class="fa-solid fa-store"></i>
+                            <h3>فروعنا المتاحة لزيارتكم</h3>
+                        </div>
+                        <span class="branches-count" id="branches-count"></span>
+                    </div>
+
+                    <ul id="branches-list" class="branches-list">
+                        <li class="loading-skeleton">جاري تحميل الفروع...</li>
+                    </ul>
+                </div>
+
+            </section>
+
+        </div>
     </main>
+
+    <!-- تذييل الموقع -->
+    <footer class="site-footer">
+        <p>© محل أبو عدنان للملابس النسائية - جميع الحقوق محفوظة</p>
+    </footer>
 
     <!-- إشعار نسخ الرابط -->
     <div id="toast" class="toast" role="status" aria-live="polite">

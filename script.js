@@ -13,17 +13,18 @@ try {
     console.warn('تعذر تهيئة Supabase:', e);
 }
 
-// بيانات افتراضية أنيقة في حال انقطاع الاتصال أو عدم توفر البيانات
+// بيانات افتراضية دقيقة في حال انقطاع الاتصال أو بطء الشبكة
 const DEFAULT_INFO = {
-    bio_text: 'أهلاً بكم في محل أبو عدنان — وجهتكم الأولى لأحدث وأرقى تشكيلات الموضة والأزياء والملبوسات النسائية بجودة عالية وأسعار منافسة.',
+    bio_text: 'لا اله الا الله',
     whatsapp: '967778325832',
     instagram: 'https://instagram.com',
     facebook: 'https://facebook.com'
 };
 
 const DEFAULT_BRANCHES = [
-    { branch_name: 'الفرع الرئيسي', location_details: 'الشارع العام - مقابل مجمع السعادة التجاري' },
-    { branch_name: 'فرع النخبة', location_details: 'شارع جمال - بجوار سوق الذهب' }
+    { branch_name: 'الفرع الرئيسي', location_details: 'شارع الستين الغربي' },
+    { branch_name: 'الفرع الثاني', location_details: 'مركز سما مول - الدور الثاني' },
+    { branch_name: 'الفرع الثالث', location_details: 'حدة - سوق الحمراء - جوار الكميم - الياسمين' }
 ];
 
 // ==========================================================================
@@ -105,16 +106,20 @@ function renderBranches(branches) {
 
     const countEl = document.getElementById('branches-count');
     if (countEl && branches && branches.length > 0) {
-        countEl.innerText = `(${branches.length})`;
-        countEl.style.fontSize = '12px';
-        countEl.style.color = 'var(--gold-primary)';
+        countEl.innerText = `${branches.length} فروع`;
     }
 
     branches.forEach(branch => {
         const li = document.createElement('li');
+        li.className = 'branch-card';
         li.innerHTML = `
-            <i class="fa-solid fa-location-dot pin-icon" aria-hidden="true"></i>
-            <span><strong>${escapeHtml(branch.branch_name)}:</strong> ${escapeHtml(branch.location_details)}</span>
+            <div class="branch-icon-box">
+                <i class="fa-solid fa-location-dot pin-icon" aria-hidden="true"></i>
+            </div>
+            <div class="branch-info">
+                <span class="branch-name">${escapeHtml(branch.branch_name)}</span>
+                <span class="branch-location">${escapeHtml(branch.location_details)}</span>
+            </div>
         `;
         branchesList.appendChild(li);
     });
@@ -128,31 +133,29 @@ function escapeHtml(text) {
 }
 
 // ==========================================================================
-// 4. ميزة مشاركة رابط الموقع (متوافقة مع الجوال واللابتوب)
+// 4. ميزة مشاركة رابط الموقع
 // ==========================================================================
-const shareBtn = document.getElementById('share-btn');
-if (shareBtn) {
-    shareBtn.addEventListener('click', async () => {
-        const shareData = {
-            title: 'محل أبو عدنان للملابس النسائية',
-            text: 'تفضل بزيارة صفحة وطرق التواصل الخاصة بمحل أبو عدنان للملابس النسائية:',
-            url: window.location.href
-        };
+function handleShare() {
+    const shareData = {
+        title: 'محل أبو عدنان للملابس النسائية',
+        text: 'تفضل بزيارة صفحة وطرق التواصل الخاصة بمحل أبو عدنان للملابس النسائية:',
+        url: window.location.href
+    };
 
-        // إذا كان المتصفح يدعم مشاركة النظام (مثل الهواتف)
-        if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
-            try {
-                await navigator.share(shareData);
-                return;
-            } catch (err) {
-                if (err.name === 'AbortError') return; // قام المستخدم بإلغاء المشاركة
-            }
-        }
-
-        // النسخ للحافظة لمتصفحات اللابتوب والكمبيوتر
+    if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
+        navigator.share(shareData).catch((err) => {
+            if (err.name !== 'AbortError') copyCurrentUrl();
+        });
+    } else {
         copyCurrentUrl();
-    });
+    }
 }
+
+const shareBtn = document.getElementById('share-btn');
+if (shareBtn) shareBtn.addEventListener('click', handleShare);
+
+const navShareBtn = document.getElementById('nav-share-btn');
+if (navShareBtn) navShareBtn.addEventListener('click', handleShare);
 
 function copyCurrentUrl() {
     if (navigator.clipboard && window.isSecureContext) {
@@ -192,7 +195,7 @@ function showToast() {
 }
 
 // ==========================================================================
-// 5. التشغيل عند تحميل الصفحة
+// 5. التشغيل عند التحميل
 // ==========================================================================
 document.addEventListener('DOMContentLoaded', () => {
     fetchSiteInfo();
