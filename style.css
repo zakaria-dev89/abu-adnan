@@ -146,9 +146,11 @@ body {
     box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
 }
 
-.dress-svg-small {
-    width: 28px;
-    height: 28px;
+.nav-logo-img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 4px rgba(212, 175, 55, 0.4));
 }
 
 .nav-title-group {
@@ -249,38 +251,28 @@ body {
 }
 
 .boutique-logo-icon {
-    width: 82px;
-    height: 82px;
-    background: linear-gradient(135deg, rgba(212, 175, 55, 0.22) 0%, rgba(30, 16, 48, 0.95) 100%);
+    width: 88px;
+    height: 88px;
+    background: radial-gradient(circle, rgba(32, 18, 52, 0.95) 0%, rgba(18, 10, 28, 0.98) 100%);
     border: 2px solid var(--gold-primary);
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.35), inset 0 0 15px rgba(212, 175, 55, 0.15);
     transition: var(--transition-smooth);
 }
 
-.dress-svg-main {
-    width: 54px;
-    height: 54px;
+.store-logo-img {
+    width: 66px;
+    height: 66px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.45));
+    transition: transform 0.3s ease;
 }
 
-.verified-badge {
-    position: absolute;
-    bottom: 2px;
-    left: 2px;
-    width: 23px;
-    height: 23px;
-    background: var(--cyan-accent);
-    color: #110b1b;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 11px;
-    border: 2px solid #110b1b;
-    box-shadow: 0 0 10px rgba(0, 240, 255, 0.6);
+.logo-wrapper:hover .store-logo-img {
+    transform: scale(1.06) rotate(3deg);
 }
 
 .profile-header h1 {
@@ -421,6 +413,58 @@ body {
     font-size: 11.5px;
     color: var(--text-muted);
     text-align: center;
+    margin-top: 2px;
+}
+
+/* بطاقة خدمة التوصيل الأنيقة */
+.delivery-card {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.12) 0%, rgba(32, 18, 50, 0.88) 100%);
+    border: 1px solid rgba(212, 175, 55, 0.28);
+    border-radius: 16px;
+    padding: 13px 16px;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+    transition: var(--transition-smooth);
+}
+
+.delivery-card:hover {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.18) 0%, rgba(42, 24, 65, 0.92) 100%);
+    border-color: var(--gold-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45), 0 4px 15px rgba(212, 175, 55, 0.2);
+}
+
+.delivery-icon-box {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: rgba(212, 175, 55, 0.2);
+    border: 1px solid var(--gold-primary);
+    color: var(--gold-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    flex-shrink: 0;
+}
+
+.delivery-content {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+}
+
+.delivery-content strong {
+    color: var(--gold-light);
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.delivery-content span {
+    color: var(--text-light);
+    font-size: 12px;
     margin-top: 2px;
 }
 
